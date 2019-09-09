@@ -1,0 +1,11 @@
+<h1> <%= @user.name %>'s show page </h1>
+<p>
+ <%= @user.name %>
+ <br>
+ <%= @user.age %>
+</p>
+<br>
+<%= link_to "edit", edit_user_path %>
+<br>
+<br>
+<%= button_to "delete", @user, method: :delete %>

@@ -1,0 +1,13 @@
+<h1> <%= @video.title %>'s show page </h1>
+<p>
+ Title: <%= @video.title %>
+ <br>
+ Link: <%= link_to @video.url, @video.url %>
+ <br>
+ Description: <%= @video.description %>
+</p>
+<br>
+<%= link_to "edit", edit_video_path %>
+<br>
+<br>
+<%= button_to "delete", @video, method: :delete %>
