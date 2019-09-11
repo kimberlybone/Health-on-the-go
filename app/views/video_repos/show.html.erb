@@ -1,0 +1,12 @@
+<h1> <%= @video_repo.user_repo.user.name %>'s Video Show Page </h1>
+<br>
+ Video Title: <%= @video_repo.video.title %>
+<br>
+<br>
+ Video URL: <%= link_to @video_repo.video.url, @video_repo.video.url %>
+<br>
+<br>
+<%= link_to "edit", edit_video_repo_path %>
+<br>
+<br>
+<%= button_to "delete", @video_repo, method: :delete %>

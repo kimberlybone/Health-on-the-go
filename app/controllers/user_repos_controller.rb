@@ -1,6 +1,12 @@
 class UserReposController < ApplicationController
 
+  def show
+    @user_repos = UserRepo.all
+    @user_repo = UserRepo.find(params[:id])
+  end
+
   def new
+    @videos = Video.all
     @users = User.all
     @user_repo = UserRepo.new
   end
@@ -12,7 +18,7 @@ class UserReposController < ApplicationController
 
   private
   def user_repo_key
-    params.require(:user).permit(:user_repo_id, )
+    params.require(:user_repo).permit(:user_id, :relaxation, :recipes, :events, :medical_foods, :exercise_videos )
   end
 
 end

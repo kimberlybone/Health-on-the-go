@@ -1,11 +1,50 @@
-<h1> <%= @user.name %>'s show page </h1>
+<h2> <%= @user.name %>'s show page </h2>
+<!-- Site navigation menu -->
+<ul class="navbar">
+  <li><a href="/users">Home page</a>
+  <li><a href="/users/:id/edit ">Edit</a>
+  <li><a href=" <% @user %> ">My Info</a>
+  <li><a href="/users/new">Create New Account</a>
+</ul>
+<style type="text/css">
+body {
+  padding-left: 11em;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  background-color: lightblue }
+ul.navbar {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 2em;
+  left: 1em;
+  width: 9em }
+h1 {
+  font-family: 'Montserrat', sans-serif;
+}
+ul.navbar li {
+  background: white;
+  margin: 0.5em 0;
+  padding: 0.3em;
+  border-right: 1em solid black }
+ul.navbar a {
+  text-decoration: none }
+a:link {
+  color: black }
+a:visited {
+  color: black }
+</style>
 <p>
- <%= @user.name %>
+ Name: <%= @user.name %>
  <br>
- <%= @user.age %>
+ Age: <%= @user.age %>
 </p>
 <br>
 <%= link_to "edit", edit_user_path %>
 <br>
 <br>
 <%= button_to "delete", @user, method: :delete %>
+
+<br>
+<br>

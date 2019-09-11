@@ -6,6 +6,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    unless @logged_in_user && @logged_in_user == @user
+      flash[:errors] = ["You don't have permission to see that page"]
+      redirect_to new_login_path
+    end
   end
 
   def new
@@ -13,8 +17,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_key)
-    redirect_to @user
+    @user = User.new(user_key)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to @user
+    else
+      flash[:errors] = @user.errors.full_messages
+      redirect_to new_user_path #throw them back to the log_in page
+    end
   end
 
   def edit
@@ -36,7 +46,7 @@ class UsersController < ApplicationController
   private
 
   def user_key
-    params.require(:user).permit(:username,:password,:name,:age,:gender,:food_intake,:medications,:hours_of_sleep,:exercise,:shower, :medical_history, :weight, :height, :weight_goal, :exercise_goal)
+    params.require(:user).permit(:username, :password, :name,:age,:gender,:food_intake,:medications,:hours_of_sleep,:exercise,:shower, :medical_history, :weight, :height, :weight_goal, :exercise_goal)
   end
 
 end

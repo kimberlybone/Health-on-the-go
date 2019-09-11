@@ -1,0 +1,10 @@
+<h1> New Video Repo </h1>
+<%= form_for @video_repo do |f| %>
+
+<%= f.label :video_id %>
+<%= f.collection_select :video_id, @videos, :id, :title %>
+
+<%= f.label :user_repo_id %>
+<%= f.collection_select :user_repo_id, @user_repos, :id, :id %>
+<%= f.submit %>
+<% end %>

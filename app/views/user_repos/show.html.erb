@@ -1,0 +1,17 @@
+
+
+
+<h2>Show the User Repo</h2>
+
+
+<h2><%= @user_repo.user.name %></h2>
+<br><br>
+<%= "Recipes" if @user_repo.recipes == true %>
+<br><br>
+<%= "Exercise Videos" if @user_repo.exercise_videos == true %>
+<br><br>
+<%= "Medical Foods" if @user_repo.medical_foods == true %>
+<br><br>
+<%= "Relaxation" if @user_repo.relaxation == true %>
+<br><br>
+<%= "Events" if @user_repo.events == true %>

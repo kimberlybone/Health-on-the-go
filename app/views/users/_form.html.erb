@@ -1,13 +1,23 @@
 <p>
+  <ul>
+
  <%= form_for @user do |f| %>
+ <%= f.label :username  %>
+ <%= f.text_field :username %>
+<br><br>
+ <%= f.label :password  %>
+ <%= f.password_field :password %>
+<br><br>
  <%= f.label :name  %>
  <%= f.text_field :name %>
-
+<br><br>
  <%= f.label :age  %>
  <%= f.number_field :age %>
+<br><br>
 
  <%= f.submit %>
  <% end %>
 
- 
+</ul>
+
 </p>

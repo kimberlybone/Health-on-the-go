@@ -1,17 +1,23 @@
-<h1> New user_repo </h1>
+<h2> New User Repo </h2>
 <br>
 <%= form_for @user_repo do |f| %>
-<h2><%= f.label :interests %></h2>
- <p>Excercise:<%= f.check_box( :interests, {}, "Exercises", nil) %>
 <br>
-Recipes:<%= f.check_box( :interests, {}, "Recipes", nil) %>
+<%= f.label :recipes %>
+<%= f.check_box :recipes, {}, true, false %>
 <br>
-Relaxation:<%= f.check_box( :interests, {}, "Relaxation", nil) %>
+<%= f.label :exercise_videos %>
+<%= f.check_box :exercise_videos, {}, true, false %>
 <br>
-Medical food:<%= f.check_box( :interests, {}, "Medical food", nil) %>
+<%= f.label :relaxation %>
+<%= f.check_box :relaxation, {}, true, false %>
 <br>
-Events:<%= f.check_box( :interests, {}, "Events", nil) %>
-</p>
+<%= f.label :medical_foods %>
+<%= f.check_box :medical_foods, {}, true, false %>
+
+<%= f.label :events %>
+<%= f.check_box :events, {}, true, false %>
+
 <%= f.label :user_id %>
 <%= f.collection_select :user_id, @users, :id, :name %>
+<%= f.submit %>
 <% end %>
