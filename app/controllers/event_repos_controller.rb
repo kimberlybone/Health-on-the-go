@@ -1,0 +1,2 @@
+class EventReposController < ApplicationController
+end

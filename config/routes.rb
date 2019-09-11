@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :relaxation_repos
+  resources :relaxations
+  resources :event_repos
+  resources :events
+  resources :recipe_repos
+  resources :recipes
   resources :video_repos
   resources :user_repos
   resources :videos

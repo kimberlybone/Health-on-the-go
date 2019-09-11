@@ -1,0 +1,10 @@
+<h2> Welcome!! </h2>
+
+Here is a list of our recipes:
+
+<p>  <% @recipes.each do |recipe| %> </p>
+ <li>
+    <%= link_to recipe.name, recipe  %>
+ </li>
+<p><% end  %></p>
+<%= link_to "new recipe", new_recipe_path %>

@@ -10,10 +10,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_211512) do
+ActiveRecord::Schema.define(version: 2019_09_11_173719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "event_repos", force: :cascade do |t|
+    t.bigint "user_repo_id", null: false
+    t.bigint "event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_event_repos_on_event_id"
+    t.index ["user_repo_id"], name: "index_event_repos_on_user_repo_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.string "description"
+    t.integer "date"
+    t.integer "time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "recipe_repos", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "user_repo_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_recipe_repos_on_recipe_id"
+    t.index ["user_repo_id"], name: "index_recipe_repos_on_user_repo_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "relaxation_repos", force: :cascade do |t|
+    t.bigint "user_repo_id", null: false
+    t.bigint "relaxation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["relaxation_id"], name: "index_relaxation_repos_on_relaxation_id"
+    t.index ["user_repo_id"], name: "index_relaxation_repos_on_user_repo_id"
+  end
+
+  create_table "relaxations", force: :cascade do |t|
+    t.string "tips"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "user_repos", force: :cascade do |t|
     t.string "interests"
@@ -65,4 +116,10 @@ ActiveRecord::Schema.define(version: 2019_09_09_211512) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "event_repos", "events"
+  add_foreign_key "event_repos", "user_repos"
+  add_foreign_key "recipe_repos", "recipes"
+  add_foreign_key "recipe_repos", "user_repos"
+  add_foreign_key "relaxation_repos", "relaxations"
+  add_foreign_key "relaxation_repos", "user_repos"
 end

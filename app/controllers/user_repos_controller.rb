@@ -18,7 +18,7 @@ class UserReposController < ApplicationController
 
   private
   def user_repo_key
-    params.require(:user_repo).permit(:user_id, :relaxation, :recipes, :events, :medical_foods, :exercise_videos )
+    params.require(:user_repo).permit(:user_id, :relaxation, :recipes, :events, :exercise_videos )
   end
 
 end

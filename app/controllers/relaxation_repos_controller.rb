@@ -1,0 +1,2 @@
+class RelaxationReposController < ApplicationController
+end

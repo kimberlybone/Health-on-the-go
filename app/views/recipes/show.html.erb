@@ -1,12 +1,11 @@
-<h1> <%= @video_repo.user_repo.user.name %>'s Video Show Page </h1>
-<br>
+<h2> <%= @recipe.name %>'s show page </h2>
 <!-- Site navigation menu -->
 <ul class="navbar">
-  <li><a href="/users">Home page</a>
-  <li><a href="/users/<%= @user.id%>/edit ">Edit</a>
-  <li><a href=" /users/<%= @user.id %> ">My Info</a>
-  <li><a href="/users/new">Create New Account</a>
-    <li><a href=" /user_repos/<%= @user.id %> " >User repo</a>
+  <li><a href="/recipes">Home page</a>
+  <li><a href="/recipes/<%= @recipe.id%>/edit ">Edit</a>
+  <li><a href=" /recipes/<%= @recipe.id %> ">Recipe Info</a>
+  <li><a href="/recipes/new">Create New Recipe</a>
+    <li><a href=" /recipe_repos/<%= @recipe.id %> " >Recipe Repo</a>
 </ul>
 <style type="text/css">
 body {
@@ -42,13 +41,16 @@ a:visited {
     padding: 10px;
   }
 </style>
- Video Title: <%= @video_repo.video.title %>
+<p>
+ Name: <%= @recipe.name %>
+ <br>
+ Age: <%= @recipe.age %>
+</p>
+<br>
+<%= link_to "EDIT", edit_recipe_path %>
 <br>
 <br>
- Video URL: <%= link_to @video_repo.video.url, @video_repo.video.url %>
+<%= button_to "Delete your account!", @recipe, method: :delete %>
+
 <br>
 <br>
-<%= link_to "edit", edit_video_repo_path %>
-<br>
-<br>
-<%= button_to "Delete your video repo", @video_repo, method: :delete %>
