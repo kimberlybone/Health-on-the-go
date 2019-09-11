@@ -55,4 +55,4 @@ a:visited {
 <br><br>
 <%= "Relaxation" if @user_repo.relaxation == true %>
 <br><br>
-<%= "Events" if @user_repo.events == true %>
+<%= link_to "Events", events_path if @user_repo.events == true %>

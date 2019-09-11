@@ -1,11 +1,11 @@
-<h2> <%= @user.name %>'s show page </h2>
+<h2> <%= @event.name %>'s show page </h2>
 <!-- Site navigation menu -->
 <ul class="navbar">
-  <li><a href="/users">Home page</a>
-  <li><a href="/users/<%= @user.id%>/edit ">Edit</a>
-  <li><a href=" /users/<%= @user.id %> ">My Info</a>
-  <li><a href="/users/new">Create New Account</a>
-    <li><a href=" /user_repos/<%= @user.id %> " >User repo</a>
+  <li><a href="/events">Home page</a>
+  <li><a href="/events/<%= @event.id%>/edit ">Edit</a>
+  <li><a href=" /events/<%= @event.id %> ">My Info</a>
+  <li><a href="/events/new">Create New Event</a>
+    <li><a href=" /event_repos/<%= @event.id %> " >Event repo</a>
 </ul>
 <style type="text/css">
 body {
@@ -42,15 +42,17 @@ a:visited {
   }
 </style>
 <p>
- Name: <%= @user.name %>
+ Name: <%= @event.name %>
  <br>
- Age: <%= @user.age %>
+ Date: <%= @event.date %>
+ <br>
+ URL: <%= link_to @event.url, @event.url %>
 </p>
 <br>
-<%= link_to "EDIT", edit_user_path %>
+<%= link_to "EDIT", edit_event_path %>
 <br>
 <br>
-<%= button_to "Delete your account!", @user, method: :delete %>
+<%= button_to "Delete this event!", @event, method: :delete %>
 
 <br>
 <br>

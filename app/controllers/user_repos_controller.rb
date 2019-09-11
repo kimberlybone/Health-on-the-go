@@ -14,7 +14,7 @@ class UserReposController < ApplicationController
   def create
     # byebug
     @user_repo = UserRepo.create(user_repo_key)
-    byebug
+    # byebug
     redirect_to @user_repo
   end
 
