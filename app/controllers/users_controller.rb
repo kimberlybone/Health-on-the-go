@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
 
   def index
@@ -20,11 +21,19 @@ class UsersController < ApplicationController
   end
 
   def show
+    # user_id =
+    # Rufus::Scheduler.singleton.in '5s' do
+    # Rails.logger.info "time flies, it's now #{Time.now}"
+    # end
+    #
+    # render :text => "scheduled user #{user_id}"
+
     @user = User.find(params[:id])
     unless @logged_in_user && @logged_in_user == @user
       flash[:errors] = ["You don't have permission to see that page"]
       redirect_to new_login_path
     end
+
   end
 
   def new
@@ -43,6 +52,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user_repos = UserRepo.all
+    @user_repo = UserRepo.find(params[:id])
     @user = User.find(params[:id])
   end
 

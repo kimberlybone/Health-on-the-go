@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :reminder_repos
+  resources :reminders
   resources :relaxation_repos
   resources :relaxations
   resources :event_repos

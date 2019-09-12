@@ -1,3 +1,4 @@
+
 <% if @user %>
 
 <h2> <%= @user.name %>'s Info </h2>
@@ -15,4 +16,6 @@
 <% else %>
 <%= "Please Create an Account" %>
 <%= link_to "Create an Account", new_user_path %>
+
+
 <% end %>

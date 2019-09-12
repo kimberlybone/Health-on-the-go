@@ -1,34 +1,48 @@
 
 
 <h2>Show the User Repo</h2>
+<% @user_repo.recipes.each do |recipe| %>
 
-
-<h2><%= @user_repo.user.name %></h2>
-<br><br>
-<ul>
-
-  <% if @user_repo.recipes == true %>
-  <li><%= link_to "Recipes", recipes_path %></li>
-  <% else %>
-  <%= "There are no recipes to display. Add a recipe!" %>
-  <%= link_to "Add Recipe", new_recipe_path %>
+  <%= recipe.name %>
   <% end  %>
+
+<%# <% if @user_repo %> %>
+  <h2><%= @user_repo.user.name %></h2>
   <br><br>
-  <% if @user_repo.exercise_videos == true %>
-  <li><%= link_to "Excercise videos", videos_path %></li>
+  <ul>
+
+
+  <%# <% if @user_repo.recipes %> %>
+
+  <%# <% else %> %>
+    <%# <%= "There are no recipes to display. Add a recipe!" %> %>
+    <%# <%= link_to "Add Recipe", new_recipe_path %> %>
+  <%# <% end  %> %>
+  <br><br>
+
+  <% if @user_repo.exercise_videos %>
+    <li><%= link_to "Excercise videos", videos_path %></li>
   <% else %>
-  <%= "There are no exercise videos to display. Add exercise videos!" %>
-  <%= link_to "Add Exercise", new_video_path%>
+    <%= "There are no exercise videos to display. Add exercise videos!" %>
+    <%= link_to "Add Exercise", new_video_path%>
   <% end %>
 
   <br><br>
-  <%= "Relaxation" if @user_repo.relaxation == true %>
+  <%= "Relaxation" if @user_repo.relaxation %>
   <br><br>
 
-  <% if @user_repo.events == true %>
-  <li><%= link_to "Events", events_path %></li>
+  <% if @user_repo.events %>
+    <li><%= link_to "Events", events_path %></li>
   <% else %>
-  <%= "There are no events to display. Add events to your page!" %>
-  <%= link_to "Add a Recipe", new_recipe_path %>
+    <%= "There are no events to display. Add events to your page!" %>
+    <%= link_to "Add an event", new_event_path %>
   <% end %>
+
+  <% if flash[:reminder] %>
+    <%= flash[:reminder].name %><br>
+  <% end %>
+
+<%# <% end  %> %>
+
+
 </ul>

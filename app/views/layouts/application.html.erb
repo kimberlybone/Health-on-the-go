@@ -20,18 +20,27 @@
 
   <body>
     <h1 style="color: white"> Health On The Go</h1>
+
+    <% if !@logged_in_user %>
+    <h2>Welcome to our app where you can keep track of your health and many other things...</h2>
+    <% end %>
+
     <% if @logged_in_user %>
       <nav>
-    <%= link_to "My Stuff", user_path %>
-    <%= link_to "Edit Profile Info", edit_user_path %>
+    <%# <%= link_to "My Stuff", user_path %> %>
+    <%# <%= link_to "Edit Profile Info", edit_user_path %> %>
     <%= link_to "Events", events_path %>
     <%= link_to "Recipes", recipes_path %>
     <%= link_to "Exercise Videos", videos_path %>
-    <%= link_to "Create New User Repo", new_user_repo_path %>
+    <%= link_to "Create a User Repo", new_user_repo_path %>
+    <%= link_to "Reminders", reminders_path %>
+
+
     <%= form_tag logout_path, method: :delete do %>
       <%= button_tag  "Logout" %>
     <% end %>
     </nav>
+
       Logged in as <%= @logged_in_user.username %>
       <% elsif @logged_in_user.nil? %>
         <% "/login/new" %>

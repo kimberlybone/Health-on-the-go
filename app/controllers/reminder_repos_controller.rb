@@ -1,0 +1,2 @@
+class ReminderReposController < ApplicationController
+end

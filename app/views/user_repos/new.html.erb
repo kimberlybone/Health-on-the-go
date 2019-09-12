@@ -1,21 +1,20 @@
 <h2> New User Repo </h2>
 <br>
-<%= form_for @user_repo do |f| %>
-<br>
-<%= f.label :recipes %>
-<%= f.check_box :recipes, {}, true, false %>
-<br>
-<%= f.label :exercise_videos %>
-<%= f.check_box :exercise_videos, {}, true, false %>
-<br>
-<%= f.label :relaxation %>
-<%= f.check_box :relaxation, {}, true, false %>
-<br>
-<%= f.label :events %>
-<%= f.check_box :events, {}, true, false %>
-<br>
-
-<%= f.label :user_id %>
-<%= f.collection_select :user_id, @users, :id, :name %>
-<%= f.submit %>
-<% end %>
+<div class="control-group">
+    <label class="control control-checkbox">
+        Recipes
+            <input type="checkbox" checked="checked" />
+        <div class="control_indicator"></div>
+    </label>
+    <label class="control control-checkbox">
+        Exercise
+            <input type="checkbox" />
+        <div class="control_indicator"></div>
+    </label>
+    <label class="control control-checkbox">
+        Events
+            <input type="checkbox" />
+        <div class="control_indicator"></div>
+    </label>
+     <input type="submit" name="Add your interests!">
+</div>

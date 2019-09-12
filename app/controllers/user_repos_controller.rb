@@ -1,13 +1,21 @@
 class UserReposController < ApplicationController
 
-  def show
+  def index
     @user_repos = UserRepo.all
+  end
+
+  def show
+    # if !@user_repo
+    #   redirect_to new_user_repo_path
+    # end
     @user_repo = UserRepo.find(params[:id])
+    # @reminder = Reminder.find(params[:id])
+    @recipes = Recipe.all
   end
 
   def new
-    @videos = Video.all
     @users = User.all
+    @user_repos = UserRepo.all
     @user_repo = UserRepo.new
   end
 

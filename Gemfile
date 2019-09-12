@@ -50,5 +50,10 @@ group :test do
   gem 'webdrivers'
 end
 
+# Use Twilio
+
+gem 'twilio-ruby'
+gem 'delayed_job_active_record'
+gem 'rufus-scheduler', :require => "rufus/scheduler"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
