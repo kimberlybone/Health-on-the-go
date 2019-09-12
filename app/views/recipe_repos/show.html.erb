@@ -1,0 +1,13 @@
+<h1> <%= @recipe_repo.user_repo.user.name %>'s Video Show Page </h1>
+<br>
+
+Recipe Title: <%= @recipe_repo.recipe.name %>
+<br>
+<br>
+<%# Recipe URL: <%= link_to @recipe_repo.recipe.url, @recipe_repo.recipe.url %> %>
+<br>
+<br>
+<%= link_to "edit", edit_recipe_repo_path %>
+<br>
+<br>
+<%= button_to "Delete your recipe repo", @recipe_repo, method: :delete %>

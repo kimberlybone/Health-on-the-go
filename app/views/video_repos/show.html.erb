@@ -1,14 +1,7 @@
 <h1> <%= @video_repo.user_repo.user.name %>'s Video Show Page </h1>
 <br>
 <!-- Site navigation menu -->
-<ul class="navbar">
-  <li><a href="/users">Home page</a>
-  <li><a href="/users/<%= @user.id%>/edit ">Edit</a>
-  <li><a href=" /users/<%= @user.id %> ">My Info</a>
-  <li><a href="/users/new">Create New Account</a>
-    <li><a href=" /user_repos/<%= @user.id %> " >User repo</a>
-</ul>
-<style type="text/css">
+<!-- <style type="text/css">
 body {
   padding-left: 11em;
   font-family: 'Montserrat', sans-serif;
@@ -41,7 +34,7 @@ a:visited {
     text-align: center;
     padding: 10px;
   }
-</style>
+</style> -->
  Video Title: <%= @video_repo.video.title %>
 <br>
 <br>

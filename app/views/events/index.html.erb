@@ -1,10 +1,10 @@
-<h2> Welcome!! </h2>
+<h2>All Your Events </h2>
 
-Here is a list of our events:
-
-<p>  <% @events.each do |event| %> </p>
- <li>
-    <%= link_to event.name, event  %>
- </li>
-<p><% end  %></p>
+<ul>
+<% @events.each do |event| %>
+  <li>
+  <%= link_to event.name, event  %>
+  </li>
+<% end  %>
+</ul>
 <%= link_to "new event", new_event_path %>

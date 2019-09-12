@@ -1,46 +1,7 @@
-<h2> <%= @user.name %>'s show page </h2>
-<!-- Site navigation menu -->
-<ul class="navbar">
-  <li><a href="/users">Home page</a>
-  <li><a href="/users/<%= @user.id%>/edit ">Edit</a>
-  <li><a href=" /users/<%= @user.id %> ">My Info</a>
-  <li><a href="/users/new">Create New Account</a>
-    <li><a href=" /user_repos/<%= @user.id %> " >User repo</a>
-</ul>
-<style type="text/css">
-body {
-  padding-left: 11em;
-  font-family: 'Montserrat', sans-serif;
-  color: black;
-  background-color: lightblue }
-ul.navbar {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  top: 2em;
-  left: 1em;
-  width: 9em }
-h1 {
-  font-family: 'Montserrat', sans-serif;
-}
-ul.navbar li {
-  background: white;
-  margin: 0.5em 0;
-  padding: 0.3em;
-  border-right: 1em solid black }
-ul.navbar a {
-  text-decoration: none }
-a:link {
-  color: black }
-a:visited {
-  color: black }
-  .footer {
-    background-color: #F1F1F1;
-    text-align: center;
-    padding: 10px;
-  }
-</style>
+<% if @user %>
+
+<h2> <%= @user.name %>'s Info </h2>
+
 <p>
  Name: <%= @user.name %>
  <br>
@@ -50,7 +11,8 @@ a:visited {
 <%= link_to "EDIT", edit_user_path %>
 <br>
 <br>
-<%= button_to "Delete your account!", @user, method: :delete %>
-
-<br>
-<br>
+<%= button_to "Delete Your Account!", @user, method: :delete %>
+<% else %>
+<%= "Please Create an Account" %>
+<%= link_to "Create an Account", new_user_path %>
+<% end %>

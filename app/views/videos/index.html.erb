@@ -1,10 +1,11 @@
 
-
-
-<h1> Index Page for Videos </h1>
-<p>  <% @videos.each do |video| %> </p>
- <li>
+<h1> All Your Videos </h1>
+<ul>
+  <p>  <% @videos.each do |video| %> </p>
+  <li>
     <%= link_to video.title, video  %>
- </li>
-<p><% end  %></p>
+  </li>
+  <p><% end  %></p>
+
+</ul>
 <%= link_to "new video", new_video_path %>

@@ -1,58 +1,34 @@
 
 
-
 <h2>Show the User Repo</h2>
-<!-- Site navigation menu -->
-<ul class="navbar">
-  <li><a href="/user_repos">Home page</a>
-  <li><a href="/user_repos/<%= @user_repo.id%>/edit ">Edit</a>
-  <li><a href=" /user_repos/<%= @user_repo.id %> ">My Info</a>
-  <li><a href="/user_repos/new">Create New Account</a>
-  <li><a href=" /user_repos/<%= @user_repo.id %> " >User repo</a>
-
-</ul>
-<style type="text/css">
-body {
-  padding-left: 11em;
-  font-family: 'Montserrat', sans-serif;
-  color: black;
-  background-color: lightblue }
-ul.navbar {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  top: 2em;
-  left: 1em;
-  width: 9em }
-h1 {
-  font-family: 'Montserrat', sans-serif;
-}
-ul.navbar li {
-  background: white;
-  margin: 0.5em 0;
-  padding: 0.3em;
-  border-right: 1em solid black }
-ul.navbar a {
-  text-decoration: none }
-a:link {
-  color: black }
-a:visited {
-  color: black }
-  .footer {
-    background-color: #F1F1F1;
-    text-align: center;
-    padding: 10px;
-  }
-</style>
 
 
 <h2><%= @user_repo.user.name %></h2>
 <br><br>
-<%= link_to "Recipes", recipes_path if @user_repo.recipes == true %>
-<br><br>
-<%= link_to "Excercise videos", videos_path if @user_repo.exercise_videos == true %>
-<br><br>
-<%= "Relaxation" if @user_repo.relaxation == true %>
-<br><br>
-<%= link_to "Events", events_path if @user_repo.events == true %>
+<ul>
+
+  <% if @user_repo.recipes == true %>
+  <li><%= link_to "Recipes", recipes_path %></li>
+  <% else %>
+  <%= "There are no recipes to display. Add a recipe!" %>
+  <%= link_to "Add Recipe", new_recipe_path %>
+  <% end  %>
+  <br><br>
+  <% if @user_repo.exercise_videos == true %>
+  <li><%= link_to "Excercise videos", videos_path %></li>
+  <% else %>
+  <%= "There are no exercise videos to display. Add exercise videos!" %>
+  <%= link_to "Add Exercise", new_video_path%>
+  <% end %>
+
+  <br><br>
+  <%= "Relaxation" if @user_repo.relaxation == true %>
+  <br><br>
+
+  <% if @user_repo.events == true %>
+  <li><%= link_to "Events", events_path %></li>
+  <% else %>
+  <%= "There are no events to display. Add events to your page!" %>
+  <%= link_to "Add a Recipe", new_recipe_path %>
+  <% end %>
+</ul>

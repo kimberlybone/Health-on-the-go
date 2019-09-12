@@ -1,10 +1,14 @@
-<h2> Welcome!! </h2>
 
-Here is a list of our recipes:
- 
-<p>  <% @recipes.each do |recipe| %> </p>
- <li>
+<h1> All Your Recipes </h1>
+
+<ul type = "list-style-type:square;">
+  <p>  <% @recipes.each do |recipe| %> </p>
+  <li>
     <%= link_to recipe.name, recipe  %>
- </li>
-<p><% end  %></p>
+  </li>
+  <p><% end  %></p>
+</ul>
 <%= link_to "new recipe", new_recipe_path %>
+<%= form_tag logout_path, method: :delete do %>
+  <%= link_to "Logout", logout_path %>
+<% end %>

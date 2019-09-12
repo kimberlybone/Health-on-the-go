@@ -4,6 +4,21 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_key)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to @user
+    else
+      flash[:errors] = @user.errors.full_messages
+      redirect_to new_user_path #throw them back to the log_in page
+    end
+  end
+
   def show
     @user = User.find(params[:id])
     unless @logged_in_user && @logged_in_user == @user

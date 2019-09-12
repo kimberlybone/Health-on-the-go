@@ -1,56 +1,25 @@
+<% if @recipe %>
 <h2> <%= @recipe.name %>'s show page </h2>
-<!-- Site navigation menu -->
-<ul class="navbar">
-  <li><a href="/recipes">Home page</a>
-  <li><a href="/recipes/<%= @recipe.id%>/edit ">Edit</a>
-  <li><a href=" /recipes/<%= @recipe.id %> ">Recipe Info</a>
-  <li><a href="/recipes/new">Create New Recipe</a>
-    <li><a href=" /recipe_repos/<%= @recipe.id %> " >Recipe Repo</a>
-</ul>
-<style type="text/css">
-body {
-  padding-left: 11em;
-  font-family: 'Montserrat', sans-serif;
-  color: black;
-  background-color: lightblue }
-ul.navbar {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  top: 2em;
-  left: 1em;
-  width: 9em }
-h1 {
-  font-family: 'Montserrat', sans-serif;
-}
-ul.navbar li {
-  background: white;
-  margin: 0.5em 0;
-  padding: 0.3em;
-  border-right: 1em solid black }
-ul.navbar a {
-  text-decoration: none }
-a:link {
-  color: black }
-a:visited {
-  color: black }
-  .footer {
-    background-color: #F1F1F1;
-    text-align: center;
-    padding: 10px;
-  }
-</style>
-<p>
+
+
  Name: <%= @recipe.name %>
- <br>
- Age: <%= @recipe.age %>
-</p>
-<br>
+<ul>
+  <li>
+  URL: <%= link_to @recipe.url, @recipe.url %>
+  </li>
+
+  <iframe width="600" height="350" src=" <%= @recipe.url %> frameborder="0" ">
+  </iframe>
+
+  Desription: <%= @recipe.description %>
+
+</ul>
 <%= link_to "EDIT", edit_recipe_path %>
 <br>
 <br>
-<%= button_to "Delete your account!", @recipe, method: :delete %>
+<%= button_to "Delete this recipe!", @recipe, method: :delete %>
 
-<br>
-<br>
+<% else %>
+<%= "There are no recipes to display. Add a recipe!" %>
+<%= link_to "Add a Recipe", new_recipe_path %>
+<% end %>

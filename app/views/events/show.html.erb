@@ -1,58 +1,23 @@
+<% if @event %>
 <h2> <%= @event.name %>'s show page </h2>
-<!-- Site navigation menu -->
-<ul class="navbar">
-  <li><a href="/events">Home page</a>
-  <li><a href="/events/<%= @event.id%>/edit ">Edit</a>
-  <li><a href=" /events/<%= @event.id %> ">My Info</a>
-  <li><a href="/events/new">Create New Event</a>
-    <li><a href=" /event_repos/<%= @event.id %> " >Event repo</a>
+
+<ul>
+  Name: <%= @event.name %>
+  <br>
+  Date: <%= @event.date %>
+  <br>
+  URL: <%= link_to @event.url, @event.url %>
+  <br>
+  <iframe width="600" height="350" src=" <%= @event.url %> frameborder="0" allowfullscreen">
+  </iframe>
+
 </ul>
-<style type="text/css">
-body {
-  padding-left: 11em;
-  font-family: 'Montserrat', sans-serif;
-  color: black;
-  background-color: lightblue }
-ul.navbar {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  top: 2em;
-  left: 1em;
-  width: 9em }
-h1 {
-  font-family: 'Montserrat', sans-serif;
-}
-ul.navbar li {
-  background: white;
-  margin: 0.5em 0;
-  padding: 0.3em;
-  border-right: 1em solid black }
-ul.navbar a {
-  text-decoration: none }
-a:link {
-  color: black }
-a:visited {
-  color: black }
-  .footer {
-    background-color: #F1F1F1;
-    text-align: center;
-    padding: 10px;
-  }
-</style>
-<p>
- Name: <%= @event.name %>
- <br>
- Date: <%= @event.date %>
- <br>
- URL: <%= link_to @event.url, @event.url %>
-</p>
-<br>
+
 <%= link_to "EDIT", edit_event_path %>
 <br>
 <br>
 <%= button_to "Delete this event!", @event, method: :delete %>
-
-<br>
-<br>
+<% else %>
+<%= "You have no events. Create an event here!" %>
+<%= link_to "Add an event", new_event_path %>
+<% end %>
