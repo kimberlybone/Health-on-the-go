@@ -1,5 +1,5 @@
 
-<h1> All Your Recipes </h1>
+<h1> All Recipes </h1>
 
 <ul type = "list-style-type:square;">
   <p>  <% @recipes.each do |recipe| %> </p>
@@ -8,7 +8,4 @@
   </li>
   <p><% end  %></p>
 </ul>
-<%= link_to "new recipe", new_recipe_path %>
-<%= form_tag logout_path, method: :delete do %>
-  <%= link_to "Logout", logout_path %>
-<% end %>
+<%= link_to "Add a new recipe to your list!", new_recipe_path %>

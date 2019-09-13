@@ -1,12 +1,15 @@
 
 <%= form_tag login_index_path do %>
+
     <ul>
       <%= label_tag :username %>
       <%= text_field_tag :username %>
+      <input class="login" id="user_name" name="user[name]" type="search" placeholder="Username" />
     </ul>
     <ul>
       <%= label_tag :password %>
       <%= password_field_tag :password %>
+      <input class="login" id="password" name="password" type="password" placeholder="Password"/>
     </ul>
   <%= submit_tag "Log in" %>
 <% end %>

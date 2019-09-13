@@ -7,6 +7,14 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
   end
 
+  def show_my_videos
+    @user = User.find(session[:user_id])
+    # byebug
+    @myvideos = Event.where(@user.user_repos)
+
+    render :my_videos
+  end
+
   def new
     @video = Video.new
   end

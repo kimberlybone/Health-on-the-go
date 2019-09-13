@@ -9,6 +9,7 @@ class LoginController < ApplicationController
       flash[:errors] = ["Your username or password is incorrect."]
       redirect_to new_login_path
     end
+
   end
 
   def destroy

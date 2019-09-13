@@ -1,18 +1,26 @@
-<h2> <%= @video.title %>'s Video Show Page </h2>
-<p>
- Title: <%= @video.title %>
+<% if @video %>
+<div class="w3-row w3-padding-64">
+<h1 class="w3-text-teal">Suggested Event</h1>
+<ul>
+  <li>
+    Title: <%= @video.title %>
+    <%= link_to @video.url, @video.url %>
+    <a href="<%= @video.url %>" target="_blank">
+    <video width="320" height="240" controls>
+      <source src=”<%= @video.url %>” type=video/ogg>
+        <source src="<%= @video.url %>" type=video/mp4>
+        </video>
+        <br>
+        Description: <%= @video.description %>
+  </li>
+</ul>
  <br>
- Link: <%= link_to @video.url, @video.url %>
- <br>
- <video width="320" height="240" controls>
-  <source src=”http://techslides.com/demos/sample-videos/small.ogv” type=video/ogg>
-  <source src="/build/videos/arcnet.io(7-sec).mp4" type=video/mp4>
-</video>
- <br>
- Description: <%= @video.description %>
-</p>
-<br>
-<%= link_to "edit", edit_video_path %>
+ <%= link_to "edit", edit_video_path %>
 <br>
 <br>
 <%= button_to "delete", @video, method: :delete %>
+<% else %>
+<%= "You have no exercises. Create an exercise here!" %>
+<%= link_to "Add an exercise", new_video_path %>
+<% end %>
+</div>

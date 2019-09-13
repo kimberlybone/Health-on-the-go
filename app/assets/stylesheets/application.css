@@ -14,6 +14,72 @@
  *= require_self
  */
 
+
+ /* @media (min-width: 992px) {
+   .animate {
+     animation-duration: 0.3s;
+     -webkit-animation-duration: 0.3s;
+     animation-fill-mode: both;
+     -webkit-animation-fill-mode: both;
+   }
+ } */
+
+ /* @keyframes slideIn {
+   0% {
+     transform: translateY(1rem);
+     opacity: 3;
+   }
+   100% {
+     transform:translateY(0rem);
+     opacity: 1;
+   }
+   0% {
+     transform: translateY(1rem);
+     opacity: 3;
+   }
+ } */
+
+ /* @-webkit-keyframes slideIn {
+   0% {
+     -webkit-transform: transform;
+     -webkit-opacity: 5;
+   }
+   100% {
+     -webkit-transform: translateY(0);
+     -webkit-opacity: 1;
+   }
+   0% {
+     -webkit-transform: translateY(1rem);
+     -webkit-opacity: 5;
+   }
+ } */
+
+ .slideIn {
+   -webkit-animation-name: slideIn;
+   animation-name: slideIn;
+ }
+
+
+
+ .w3-sidebar {
+   z-index: 3;
+   width: 250px;
+   top: 43px;
+   bottom: 0;
+   height: inherit;
+ }
+
+ h1 {-webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+-moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+-o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+ }
+
+ nav a{
+-webkit-box-shadow: 10px 10px 10px 5px rgba(0,0,0,0.5);
+box-shadow: 10px 10px 10px 5px rgba(0,0,0,0.5);
+}
+
  nav {
    height: 100px;
    width: 100%;
@@ -25,9 +91,9 @@
  }
 
  nav a {
-   transition: 0.5s;
-   height: 80px;
-   width: 100px;
+   transition: 0.9s;
+   height: 40px;
+   width: 120px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -38,3 +104,74 @@
    background-color: #eee;
    color: #262626;
  }
+
+ body {
+   background: #007bff;
+   background: linear-gradient(to right, #0062E6, #33AEFF);
+ }
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+  background: gray;
+
+}
+header {
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  header {
+    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+  }
+  header video {
+    display: none;
+  }
+}
+
+.dropdown-item {
+  background: lightgray;
+}

@@ -1,4 +1,8 @@
 <h1>All Your Stuff</h1>
+<% if @user_repo == "Recipes" %>
+  <%= @user_repo.recipes %>
+  <% end %>
 
-
- 
+  <% if @user_repo == "Events" %>
+    <%= @user_repo.events %>
+    <% end %>

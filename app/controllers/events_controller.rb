@@ -7,6 +7,14 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def show_my_events
+    @user = User.find(session[:user_id])
+    # byebug
+    @myevents = Event.where(@user.user_repos)
+
+    render :my_events
+  end
+
   def new
     @event = Event.new
   end

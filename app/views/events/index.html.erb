@@ -1,4 +1,5 @@
-<h2>All Your Events </h2>
+
+<h2>All Events </h2>
 
 <ul>
 <% @events.each do |event| %>
@@ -7,4 +8,4 @@
   </li>
 <% end  %>
 </ul>
-<%= link_to "new event", new_event_path %>
+<%= link_to "Add a new event to your list!", new_event_path %>

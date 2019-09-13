@@ -35,6 +35,14 @@ class RemindersController < ApplicationController
 
     puts message.sid
   end
+  
+  def show_my_reminders
+    @user = User.find(session[:user_id])
+    # byebug
+    @myreminders = Reminder.where(@user.user_repos)
+
+    render :my_reminders
+  end
 
   # GET /reminders/new
   def new
@@ -94,5 +102,8 @@ class RemindersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def reminder_params
       params.require(:reminder).permit(:name, :phone_number, :time)
+    end
+    def cuurent_user
+
     end
 end

@@ -1,6 +1,7 @@
 
 
 <h2>Show the User Repo</h2>
+
 <% @user_repo.recipes.each do |recipe| %>
 
   <%= recipe.name %>
@@ -20,27 +21,27 @@
   <%# <% end  %> %>
   <br><br>
 
-  <% if @user_repo.exercise_videos %>
+  <% #if @user_repo.exercise_videos %>
     <li><%= link_to "Excercise videos", videos_path %></li>
-  <% else %>
-    <%= "There are no exercise videos to display. Add exercise videos!" %>
-    <%= link_to "Add Exercise", new_video_path%>
-  <% end %>
+  <% #else %>
+    <%= #{}"There are no exercise videos to display. Add exercise videos!" %>
+    <%= #link_to "Add Exercise", new_video_path%>
+  <% #end %>
 
   <br><br>
-  <%= "Relaxation" if @user_repo.relaxation %>
+  <%= #{}"Relaxation" if @user_repo.relaxation %>
   <br><br>
 
-  <% if @user_repo.events %>
+  <% #if @user_repo.events %>
     <li><%= link_to "Events", events_path %></li>
-  <% else %>
-    <%= "There are no events to display. Add events to your page!" %>
-    <%= link_to "Add an event", new_event_path %>
-  <% end %>
+  <%# else %>
+    <%= #{}"There are no events to display. Add events to your page!" %>
+    <%= #link_to "Add an event", new_event_path %>
+  <% #end %>
 
-  <% if flash[:reminder] %>
-    <%= flash[:reminder].name %><br>
-  <% end %>
+  <% if #flash[:reminder] %>
+    <%=# flash[:reminder].name %><br>
+  <%# end %>
 
 <%# <% end  %> %>
 

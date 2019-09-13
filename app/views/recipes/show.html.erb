@@ -1,18 +1,17 @@
 <% if @recipe %>
-<h2> <%= @recipe.name %>'s show page </h2>
+<h2> Suggested Recipes! </h2>
+Show Page
 
-
- Name: <%= @recipe.name %>
 <ul>
   <li>
-  URL: <%= link_to @recipe.url, @recipe.url %>
-  </li>
-
+  Name: <%= @recipe.name %>
+  <%= link_to @recipe.url, @recipe.url %>
+  <a href="<%= @recipe.url %>">
   <iframe width="600" height="350" src=" <%= @recipe.url %> frameborder="0" ">
-  </iframe>
-
+  </iframe><br>
+  </a>
   Desription: <%= @recipe.description %>
-
+  </li>
 </ul>
 <%= link_to "EDIT", edit_recipe_path %>
 <br>

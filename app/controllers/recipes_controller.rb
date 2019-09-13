@@ -7,6 +7,14 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def show_my_recipes
+    @user = User.find(session[:user_id])
+    # byebug
+    @myrecipes = Recipe.where(@user.user_repos)
+
+    render :my_recipes
+  end
+
   def new
     @recipe = Recipe.new
   end

@@ -1,15 +1,15 @@
 <% if @event %>
-<h2> <%= @event.name %>'s show page </h2>
-
+<h2> Suggested Event! </h2>
 <ul>
-  Name: <%= @event.name %>
-  <br>
-  Date: <%= @event.date %>
-  <br>
-  URL: <%= link_to @event.url, @event.url %>
-  <br>
-  <iframe width="600" height="350" src=" <%= @event.url %> frameborder="0" allowfullscreen">
-  </iframe>
+  <li>
+    Name: <%= @event.name %><br>
+    Date: <%= @event.date %><br>
+    <%= link_to @event.url, @event.url %>
+    <a href="<%= @event.url %>" target="_blank">
+      <iframe width="600" height="350" src=" <%= @event.url %> frameborder="0" ">
+      </iframe><br>
+    </a>
+  </li>
 
 </ul>
 

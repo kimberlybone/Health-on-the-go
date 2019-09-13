@@ -21,14 +21,25 @@ class UserReposController < ApplicationController
 
   def create
     # byebug
-    @user_repo = UserRepo.create(user_repo_key)
+    if !@logged_in_user
+      flash[:errors] = [ "You must be logged in to add an interest!" ]
+    elsif @can_vote
+      # use_one_vote
+      @user_repo = UserRepo.create(user_repo_key)
+      flash[:notification] = "You just created a repo!"
+    else
+      flash[:errors] = [ "You're all out of interests" ]
+    end
+    # @user_repo = UserRepo.create(user_repo_key)
     # byebug
     redirect_to @user_repo
   end
 
   private
   def user_repo_key
-    params.require(:user_repo).permit(:user_id, :relaxation, :recipes, :events, :exercise_videos )
+    params.require(:user_repo).permit(sesion[:user_id], :relaxation, :recipes, :events, :exercise_videos )
   end
+
+
 
 end
